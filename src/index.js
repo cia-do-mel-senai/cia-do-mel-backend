@@ -20,6 +20,7 @@ app.post("/logar", autenticacaoController.logar);
 const produtosController = new ProdutosController();
 
 app.post("/produtos", produtosController.cadastrar);
+app.get("/produtos", produtosController.listar);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
