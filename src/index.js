@@ -21,6 +21,9 @@ const produtosController = new ProdutosController();
 
 app.post("/produtos", produtosController.cadastrar);
 app.get("/produtos", produtosController.listar);
+app.get("/produtos/:id", produtosController.buscarProduto);
+app.delete("/produtos/:id", produtosController.excluir);
+app.put("/produtos", produtosController.editar);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
