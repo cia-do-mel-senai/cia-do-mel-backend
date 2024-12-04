@@ -24,6 +24,7 @@ app.get("/produtos", produtosController.listar);
 app.get("/produtos/:id", produtosController.buscarProduto);
 app.delete("/produtos/:id", produtosController.excluir);
 app.put("/produtos", produtosController.editar);
+app.get("/ultimos-produtos", produtosController.ultimosProdutos);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {

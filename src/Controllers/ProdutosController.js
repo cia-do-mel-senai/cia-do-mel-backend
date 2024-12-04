@@ -84,6 +84,18 @@ class ProdutosController {
       resp.status(500).send(error);
     }
   }
+  async ultimosProdutos(req, resp) {
+    try {
+      const conexao = await new ConexaoMySql().getConexao();
+      const comandoSql =
+        "SELECT * FROM produto ORDER BY id_produto DESC LIMIT 4;";
+      const [resposta] = await conexao.execute(comandoSql);
+      resp.send(resposta);
+      return resposta;
+    } catch (error) {
+      resp.status(500).send(error);
+    }
+  }
 }
 
 export default ProdutosController;
