@@ -67,7 +67,6 @@ class ProdutosController {
   async editar(req, resp) {
     try {
       const produto = req.body;
-      console.log(produto);
       const conexao = await new ConexaoMySql().getConexao();
       const comandoSql =
         "UPDATE produto SET nome_produto = ?, descricao_produto = ?, preco_produto = ?, imagem_produto = ? WHERE id_produto = ?";

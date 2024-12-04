@@ -15,7 +15,6 @@ class UsuariosController {
   async cadastrar(req, resp) {
     try {
       const novoUsuario = req.body;
-      console.log(novoUsuario);
       if (!novoUsuario.nome || !novoUsuario.email || !novoUsuario.senha) {
         resp.status(400).send("Os campos precisam ser preenchidos");
         return;
