@@ -5,7 +5,10 @@ class AutenticacaoController {
     try {
       const { email, senha } = req.body;
       if (!email || !senha) {
-        resp.status(400).send("Os campos precisam ser preenchidos");
+        resp.status(400).json({
+          sucesso: false,
+          mensagem: "Por favor, preencha todos os campos.",
+        });
         return;
       }
 
@@ -22,7 +25,7 @@ class AutenticacaoController {
       if (!usuarioEncontrado) {
         resp
           .status(401)
-          .json({ sucesso: false, mensagem: "Usuário não encontrado" });
+          .json({ sucesso: false, mensagem: "Usuário ou senha inválidos." });
         return;
       }
 
